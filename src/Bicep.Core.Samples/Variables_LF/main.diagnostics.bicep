@@ -122,3 +122,41 @@ var previousEmitLimit = [
     }
   }
 ]
+
+// previously this was not possible to emit correctly
+var previousEmitLimit2 = [
+  concat('s')
+  '${4}'
+  {
+    a: {
+      b: base64('s')
+      c: union({
+        a: 12 + 3
+      }, {
+        b: !true
+        c: 'hello'
+      })
+      d: resourceGroup().location
+      e: union({
+        x: true
+      }, {})
+      f: intersection({
+        q: 's' == 12
+      }, {})
+    }
+  }
+]
+
+// previously this was not possible to emit correctly
+var previousEmitLimit3 = {
+  a: {
+    b: {
+      a: resourceGroup().location
+    } == 2
+    c: concat([
+
+    ], [
+      true
+    ])
+  }
+}

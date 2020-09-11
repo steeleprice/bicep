@@ -136,7 +136,7 @@ var unusedIntermediateRef = unusedIntermediate.secondaryKey
 
 // previously this was not possible to emit correctly
 var previousEmitLimit = [
-//@[4:21) Variable previousEmitLimit. Declaration start char: 0, length: 296
+//@[4:21) Variable previousEmitLimit. Declaration start char: 0, length: 298
   concat('s')
   '${4}'
   {
@@ -158,3 +158,43 @@ var previousEmitLimit = [
     }
   }
 ]
+
+// previously this was not possible to emit correctly
+var previousEmitLimit2 = [
+//@[4:22) Variable previousEmitLimit2. Declaration start char: 0, length: 326
+  concat('s')
+  '${4}'
+  {
+    a: {
+      b: base64('s')
+      c: union({
+        a: 12 + 3
+      }, {
+        b: !true
+        c: 'hello'
+      })
+      d: resourceGroup().location
+      e: union({
+        x: true
+      }, {})
+      f: intersection({
+        q: 's' == 12
+      }, {})
+    }
+  }
+]
+
+// previously this was not possible to emit correctly
+var previousEmitLimit3 = {
+//@[4:22) Variable previousEmitLimit3. Declaration start char: 0, length: 137
+  a: {
+    b: {
+      a: resourceGroup().location
+    } == 2
+    c: concat([
+
+    ], [
+      true
+    ])
+  }
+}

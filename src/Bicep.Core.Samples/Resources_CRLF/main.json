@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
@@ -73,13 +73,13 @@
       "name": "myencryptedone",
       "location": "eastus2",
       "properties": {
-        "supportsHttpsTrafficOnly": "[not(json('false'))]",
-        "accessTier": "[if(json('true'), 'Hot', 'Cold')]",
+        "supportsHttpsTrafficOnly": "[not(false())]",
+        "accessTier": "[if(true(), 'Hot', 'Cold')]",
         "encryption": {
           "keySource": "Microsoft.Storage",
           "services": {
             "blob": {
-              "enabled": "[or(json('true'), json('false'))]"
+              "enabled": "[or(true(), false())]"
             },
             "file": {
               "enabled": true
@@ -207,7 +207,7 @@
             "aKind": "[reference(resourceId('My.Rp/typeA', 'resourceA'), '2020-01-01', 'full').kind]"
           }
         ],
-        "repro316": "[if(variables('setResourceCRef'), variables('resourceCRef'), json('null'))]"
+        "repro316": "[if(variables('setResourceCRef'), variables('resourceCRef'), null())]"
       },
       "dependsOn": [
         "[resourceId('My.Rp/typeA', 'resourceA')]",
